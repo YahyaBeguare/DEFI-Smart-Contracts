@@ -4,5 +4,8 @@
     "ethers": "^6.13.2",
     "fs": "^0.0.1-security",
     "hardhat": "^2.22.10"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }
