@@ -4,12 +4,9 @@ const addressFile= require("../../address.json");
 
 async function deployMyToken() {
   //deploy the MyToken contract
-  const MyToken = await hre.ethers.deployContract("MyToken", {
-    gasLimit: 650000,  // Specify gas limit for this transaction
-    gasPrice: 150000000  // Specify gas price for this transaction
-  });
-  await MyToken.waitForDeployment();
-  console.log("MyToken contract deployed to:",MyToken.target );
+  const MyTokenFac = await hre.ethers.deployContract("MyTokenFac");
+  await MyTokenFac.waitForDeployment();
+  console.log("MyToken contract deployed to:",MyTokenFac.target );
 
   try{
   //save the contract's address to the address.json file

@@ -1,5 +1,10 @@
 {
+  "ERC20_contracts": {
+    "BasicContracts": {
+      "MyToken": "0x466eDf1EAD4F232b33B09407E3C39dc5AC240445"
+    }
+  },
   "ERC20_contract": {
-    "MyToken": "0x466eDf1EAD4F232b33B09407E3C39dc5AC240445"
+    "MyToken": "0x67eEe774fa0E2F2600000a7cC38507e2B6016b6E"
   }
 }

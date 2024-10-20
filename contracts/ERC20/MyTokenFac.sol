@@ -3,14 +3,17 @@
 pragma solidity ^0.8.21;
 
 
-contract MyToken {
-// a total supply of 1 million tokens
-uint256 public totalSupply = 100000000000000000000000;
-string public name = "MyToken";
-string public symbol= "MTK";   
-uint8 public decimals= 18;
-constructor() {
-    balanceOf[msg.sender] = totalSupply;
+contract MyTokenFac {
+
+string public name ;
+string public symbol;   
+uint8 public decimals;
+
+constructor(string memory _name , string memory _symbol,  uint8 _decimals, uint256 _totalSupply) {
+    name = _name;
+    symbol = _symbol;
+    decimals = _decimals;
+    balanceOf[msg.sender] = _totalSupply;
     
 }
 
