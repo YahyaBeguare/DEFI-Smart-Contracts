@@ -44,6 +44,7 @@ function transfer(address _to, uint256 value) public validAddress( _to) returns(
 
 // approve the passed address to spend the specified amount of tokens on behalf of msg.sender .
 function approve(address _spender, uint256 value) public validAddress(_spender) returns(bool) {
+    
     allowed[msg.sender][_spender] = value; 
     emit Approval(msg.sender, _spender, value);
     return true;
