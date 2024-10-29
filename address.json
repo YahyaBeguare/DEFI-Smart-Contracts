@@ -2,21 +2,21 @@
   "ERC20_contracts": {
     "BasicContracts": {
       "MyToken": {
-        "TokenAddress": "0x0CBEffD582B130DEa393167ddCB327d7EA44c822"
+        "TokenAddress": "0xa3f80C67DE4F4685CF7D8d17caEa44b44F768606"
       },
       "MyTokenFac": {
         "TokenName": "Tesla",
         "TokenSymbol": "TSL",
-        "TokenAddress": "0x4Cda2Bd49c8229aA3Dc9F33D20227F6b4f8b614F",
-        "TokenSupply": "1000000000000000000000000"
+        "TokenAddress": "0x39806343aF4c2f3fd25C41e228E8edBbFd081B1A",
+        "TokenSupply": "1000"
       }
     },
     "AdvancedContracts": {
       "ZeroToken": {
-        "TokenName": "Zero",
-        "TokenSymbol": "zr",
-        "TokenAddress": "0x6DA27760Da1cE17aBff328CaE05FA7F3BB5e584f",
-        "TokenInitialSupply": "1000000000000000000000000"
+        "TokenName": "Zero Token",
+        "TokenSymbol": "ZRT",
+        "TokenAddress": "0x05EC6492A4E101b6b127eBD2204e63AbA7C3e440",
+        "TokenInitialSupply": "1000000"
       }
     }
   }

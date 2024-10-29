@@ -4,11 +4,12 @@ pragma solidity ^0.8.21;
 
 
 contract MyToken {
-// a total supply of 1 million tokens
-uint256 public totalSupply = 100000000000000000000000;
+
 string public name = "MyToken";
 string public symbol= "MTK";   
 uint8 public decimals= 18;
+// a total supply of 1 million tokens
+uint256 public totalSupply = 1000000 * (10 ** uint256(decimals));
 constructor() {
     balanceOf[msg.sender] = totalSupply;
     

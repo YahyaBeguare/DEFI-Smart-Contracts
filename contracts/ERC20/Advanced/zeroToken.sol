@@ -23,8 +23,8 @@ contract ZeroToken is IERC20 {
         name = _name;
         symbol = _symbol;
         decimals = _decimals;
-        balances[msg.sender] = initialSupply;
-        _totalSupply = initialSupply;
+        _totalSupply = initialSupply * (10 ** uint256(decimals));
+        balances[msg.sender] = _totalSupply;
         owner = msg.sender;
     }
 
