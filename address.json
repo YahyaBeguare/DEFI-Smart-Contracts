@@ -2,7 +2,7 @@
   "ERC20_contracts": {
     "BasicContracts": {
       "MyToken": {
-        "TokenAddress": "0xa3f80C67DE4F4685CF7D8d17caEa44b44F768606"
+        "TokenAddress": "0x62c8a9E299b68899030d8591f9df140c93bCebE3"
       },
       "MyTokenFac": {
         "TokenName": "Tesla",

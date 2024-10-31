@@ -6,7 +6,18 @@ const addressFile = require("../../../../address.json");
 const tokenInfoPath = "scripts/deployement/ERC20/basicToken/tokenInfo.json";
 
 async function deployMyToken(tokenInfo) {
+  // Get the deployer account (when using Hardhat's local network it defaults to the first account)
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying contracts with the account:", deployer.address);
+
+  // Get the token info from the JSON file
   const { name, symbol, decimals, totalSupply } = tokenInfo;
+  console.log("Deploying with arguments:", {
+    name,
+    symbol,
+    decimals,
+    initialSupply,
+  });
 
   // Deploy the MyToken contract with constructor arguments
   const MyTokenFac = await hre.ethers.deployContract("MyTokenFac", [
@@ -22,12 +33,10 @@ async function deployMyToken(tokenInfo) {
   try {
     // Save the contract's address to the address.json file
     addressFile["ERC20_contracts"]["BasicContracts"]["MyTokenFac"] = {
-    
-        TokenName: name  ,
-        TokenSymbol: symbol,
-        TokenAddress: MyTokenFac.target,
-        TokenSupply: totalSupply,
-      
+      TokenName: name,
+      TokenSymbol: symbol,
+      TokenAddress: MyTokenFac.target,
+      TokenSupply: totalSupply,
     };
 
     fs.writeFileSync("./address.json", JSON.stringify(addressFile, null, 2));

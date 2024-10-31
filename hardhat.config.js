@@ -16,6 +16,7 @@ module.exports = {
       },
     },
   },
+  // this line sets the default network to use when running tasks or scripts 
    defaultNetwork: "ganache",
   networks: {
     hardhat: {
