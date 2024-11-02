@@ -90,8 +90,8 @@ To deploy on Sepolia testnet, make sure you have:
 + An Infura or Alchemy API key for connecting to Sepolia.
 Update .env with your Sepolia credentials:
 
-- SEPOLIA_PRIVATE_KEY=<your-private-key>
-- INFURA_API_KEY=<your-infura-api-key>
+- SEPOLIA_PRIVATE_KEY= "your-private-key"
+- INFURA_API_KEY= "your-infura-api-key"
 
 Deploy to Sepolia:
 

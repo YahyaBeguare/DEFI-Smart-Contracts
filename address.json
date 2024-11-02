@@ -15,7 +15,7 @@
       "ZeroToken": {
         "TokenName": "Zero Token",
         "TokenSymbol": "ZRT",
-        "TokenAddress": "0x05EC6492A4E101b6b127eBD2204e63AbA7C3e440",
+        "TokenAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
         "TokenInitialSupply": "1000000"
       }
     }

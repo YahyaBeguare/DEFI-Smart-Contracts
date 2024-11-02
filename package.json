@@ -9,6 +9,8 @@
     "deploy:MyTokenFac": "npx hardhat run scripts/deployement/ERC20/basicToken/deploy.MytokenFac.js",
 
     "deploy:ZeroToken": "npx hardhat run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
+    "deploy-localhost:ZeroToken": "npx hardhat --network localhost run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
+    "deploy-sepolia:ZeroToken": "npx hardhat --network sepolia run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
 
     "interact:ZeroToken":"npx hardhat run scripts/interactions/interact.zeroToken.js"
 
