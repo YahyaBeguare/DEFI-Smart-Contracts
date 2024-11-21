@@ -69,14 +69,17 @@ For detailed documentation, see [ERC20.md](docs/ERC20.md).
 #### Basic Tokens
 
 **MyToken**
+
 The MToken.sol contract implements fundamental token functionalities, including transferring tokens, approving allowances, and transferring on behalf of others using allowances. It sets an initial supply of 1 million tokens assigned to the deployer and includes events for transparency. The code is structured with clear validations and safeguards for common token operations.
 
 **MyTokenFac**
+
 The MyTokenFac.sol is an ERC20-like factory contract that allows the creation of tokens with customizable properties (name, symbol, decimals, and total supply). The constructor assigns the initial supply to the deployer's balance. It includes essential ERC20 functionalities like token transfers, approval for spending, and transferring tokens on behalf of others.
 
 You could customise the token properties in the tokenInfo.json file located in scripts\deployement\ERC20\basicToken\tokenInfo.json .
 
 **ZeroToken**
+
 The ZeroToken contract is an ERC20-compliant implementation that supports minting and burning of tokens. It includes an ownership model, where only the owner can mint new tokens. The contract also adheres to the IERC20 interface, ensuring compatibility with ERC20 tools and standards. Key functionalities include standard ERC20 transfers, allowance-based token spending, and the ability to burn tokens from the caller or another account with an approved allowance.
 
 **Comparison with Other Token Implementations**
@@ -90,17 +93,19 @@ Below is a feature comparison between `ZeroToken`, `MyToken`, and `MyTokenFac`:
 You could configure the defaultNetwork in the hardhat.config.js file, and set it to the network you want to use (By Default it's in the localhost netwok, and could choose between localhost, Ganache and sepolia) .
 Then depending on the defaultNetwork run the deployement command :
 
+**MyToken.sol**
+
 ```
 npm run deploy:MyToken
 ```
 
-or
+**MyTokenFac.sol**
 
 ```
 npm run deploy:MyTokenFac
 ```
 
-or
+**ZeroToken.sol**
 
 ```
 npm run deploy:ZeroToken
@@ -120,17 +125,19 @@ npx hardhat node
 
 2. run the deployement command :
 
+**MyToken.sol**
+
 ```
 npm run deploy-localhost:MyToken
 ```
 
-or
+**MyTokenFac.sol**
 
 ```
 npm run deploy-localhost:MyTokenFac
 ```
 
-or
+**ZeroToken.sol**
 
 ```
 npm run deploy-localhost:ZeroToken
@@ -148,6 +155,7 @@ ganache-cli
 
 Or just open the ganache app and log to the configured workspace .
 Deploy the contracts:
+
 **MyToken.sol**
 
 ```
