@@ -86,7 +86,7 @@ The ZeroToken contract is an ERC20-compliant implementation that supports mintin
 
 Below is a feature comparison between `ZeroToken`, `MyToken`, and `MyTokenFac`:
 
-![Comparison Table](./Documentation\ERC20_features.PNG)
+![Comparison Table](./Documentation/ERC20_features.PNG)
 
 ## Deployment
 
