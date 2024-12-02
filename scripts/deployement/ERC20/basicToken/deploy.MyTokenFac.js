@@ -16,7 +16,7 @@ async function deployMyToken(tokenInfo) {
     name,
     symbol,
     decimals,
-    initialSupply,
+    totalSupply,
   });
 
   // Deploy the MyToken contract with constructor arguments

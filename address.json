@@ -7,8 +7,8 @@
       "MyTokenFac": {
         "TokenName": "Tesla",
         "TokenSymbol": "TSL",
-        "TokenAddress": "0x39806343aF4c2f3fd25C41e228E8edBbFd081B1A",
-        "TokenSupply": "1000"
+        "TokenAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        "TokenSupply": "1000000000"
       }
     },
     "AdvancedContracts": {
