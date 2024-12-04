@@ -21,3 +21,5 @@ documentation.md
 test.js
 
 /contracts/ERC721
+
+scripts/interactions/mintTokenFromFactory.js

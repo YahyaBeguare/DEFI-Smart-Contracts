@@ -5,10 +5,10 @@ pragma solidity ^0.8.21;
 import {MyTokenFac} from "./MyTokenFac.sol";
 
 /**
- * @title MyTokenFactory
+ * @title TokensFactory
  * @dev A factory contract to deploy and manage multiple instances of MyTokenFac contracts.
  */
-contract MyTokenFactory {
+contract TokensFactory {
 
     // Structure to store details about each deployed token contract.
     struct tokensArch {
