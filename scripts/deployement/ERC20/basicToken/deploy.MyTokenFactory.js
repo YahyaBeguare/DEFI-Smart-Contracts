@@ -1,5 +1,6 @@
 const hre = require("hardhat");
 const fs = require("fs");
+const addressFile = require("../../../../address.json");
 
 
 async function deployTokensFactory() {
@@ -16,7 +17,7 @@ async function deployTokensFactory() {
   try {
     // Save the factory contract's address to the address.json file
     addressFile["ERC20_contracts"]["Factory"] = {
-      FactoryAddress: ZeroToken.target,      
+      FactoryAddress: Factory.target,      
     };
 
     fs.writeFileSync("./address.json", JSON.stringify(addressFile, null, 2));
