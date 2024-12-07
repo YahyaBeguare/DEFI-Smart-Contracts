@@ -26,7 +26,7 @@ contract TokensFactory {
     mapping (uint => tokensArch) public tokens;
  
     // Event emitted whenever a new token contract is deployed.
-    event tokencreated(string name, string _symbol, uint8 _decimals, uint256 _initialSupply, address tokenAddress);
+    event tokenCreated(string name, string _symbol, uint8 _decimals, uint256 _initialSupply, address tokenAddress);
 
     /**
      * @dev Deploys a new MyTokenFac contract and stores its details in the factory.
@@ -49,6 +49,8 @@ contract TokensFactory {
         
         // Increment the token counter.
         tokenCount++;
+        // Emit an event to notify that a new token has been created.
+        emit tokenCreated(_name, _symbol, _decimals, _initialSupply, address(token));
     }
 
     /**

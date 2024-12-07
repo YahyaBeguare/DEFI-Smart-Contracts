@@ -1,1 +1,15 @@
-{}
+{
+  "MyTokenFac": {},
+  "Zara": {
+    "TokenName": "Zara",
+    "TokenSymbol": "ZR",
+    "TokenAddress": "0x043422e15067E8BEC0854728Aff17932e7982Ba8",
+    "TokenSupply": "1000000000"
+  },
+  "Zero": {
+    "TokenName": "Zero",
+    "TokenSymbol": "ZR",
+    "TokenAddress": "0xe994a15087d98970F7027d22F1bAe0Ee5dCFB2A0",
+    "TokenSupply": "1000000000"
+  }
+}
