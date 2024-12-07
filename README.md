@@ -66,7 +66,7 @@ function transfer(address recipient, uint256 amount) public returns (bool);
 
 For detailed documentation, see [ERC20.md](docs/ERC20.md).
 
-#### Basic Tokens
+#### + Basic Tokens
 
 **MyToken**
 
@@ -77,6 +77,12 @@ The MToken.sol contract implements fundamental token functionalities, including 
 The MyTokenFac.sol is an ERC20-like factory contract that allows the creation of tokens with customizable properties (name, symbol, decimals, and total supply). The constructor assigns the initial supply to the deployer's balance. It includes essential ERC20 functionalities like token transfers, approval for spending, and transferring tokens on behalf of others.
 
 You could customise the token properties in the tokenInfo.json file located in scripts\deployement\ERC20\basicToken\tokenInfo.json .
+
+**TokensFactory**
+
+The TokensFactory contract is a smart contract that allows users to deploy multiple instances of customizable ERC-20 tokens through the MyTokenFac contract. It stores key details about each deployed token, such as its name, symbol, decimals, initial supply, and contract address. The contract emits an event when a new token is created and provides functions to retrieve token details by index or name.
+
+#### + Advanced Tokens
 
 **ZeroToken**
 
@@ -111,6 +117,12 @@ npm run deploy:MyTokenFac
 npm run deploy:ZeroToken
 ```
 
+**TokensFactory.sol**
+
+```
+npm run deploy:TokensFactory
+```
+
 Else if you are navigating between different networks, you could run those commands for deployement without the need to reset the defaultNetwork each time you switch the network .
 
 #### LocalHost network
@@ -143,6 +155,12 @@ npm run deploy-localhost:MyTokenFac
 npm run deploy-localhost:ZeroToken
 ```
 
+**TokensFactory.sol**
+
+```
+npm run deploy-localhost:TokensFactory
+```
+
 #### Ganache (Local Network)
 
 To deploy the smart contracts on a local Ganache blockchain:
@@ -172,6 +190,12 @@ npm run deploy-ganache:MyTokenFac
 
 ```
 npm run deploy-ganache:ZeroToken
+```
+
+**TokensFactory.sol**
+
+```
+npm run deploy-ganache:TokensFactory
 ```
 
 #### Sepolia (Testnet)
@@ -206,6 +230,14 @@ npm run deploy-sepolia:MyTokenFac
 npm run deploy-sepolia:ZeroToken
 ```
 
+**TokensFactory.sol**
+
+```
+npm run deploy-sepolia:TokensFactory
+```
+
+Ps: Once a contract is deployed, you could check its details on address.json file .
+
 ## Interacting with the Contracts
 
 After deployment, you can interact with the smart contracts using:
@@ -219,3 +251,16 @@ After deployment, you can interact with the smart contracts using:
 - **Ethers.js** for JavaScript-based interaction.
 
 - **Metamask** for interacting with the contracts on the Ethereum network.
+
+### TokensFactory
+
+To create new tokens from the factory
+
+1. Customize your Tokens Details in the scripts\deployement\ERC20\basicToken\factoryTokensInfo.json file .
+2. Execute the minting script by Running the command :
+
+```
+npm run mintToken
+```
+
+3. The created tokens info will be stored to the factoryTokens.json file .

@@ -19,10 +19,15 @@
     "deploy-sepolia:ZeroToken": "npx hardhat --network sepolia run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
     "deploy-ganache:ZeroToken": "npx hardhat --network ganache run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
 
+    "deploy:TokensFactory": "npx hardhat run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
     "deploy-localhost:TokensFactory": "npx hardhat --network localhost run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
+    "deploy-sepolia:TokensFactory": "npx hardhat --network sepolia run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
+    "deploy-ganache:TokensFactory": "npx hardhat --network ganache run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
+
    
     "interact:ZeroToken":"npx hardhat run scripts/interactions/interact.zeroToken.js",
-    "mintToken": "npx hardhat --network localhost run scripts/interactions/mintTokenFromFactory.js"
+    "mintToken-localhost": "npx hardhat --network localhost run scripts/interactions/mintTokenFromFactory.js",
+    "mintToken": "npx hardhat run scripts/interactions/mintTokenFromFactory.js"
     
   },
   "devDependencies": {
