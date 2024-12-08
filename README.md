@@ -29,7 +29,11 @@ Before getting started, ensure you have the following installed:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/defi-protocols.git
+   git clone https://github.com/yahya-beg/DEFI-Smart-Contracts
+   ```
+
+   
+   ```
    cd defi-protocols
    ```
 
@@ -50,7 +54,7 @@ Before getting started, ensure you have the following installed:
 
 ### ERC20
 
-The ERC20 contract defines a standard for fungible tokens. It's commonly used for creating utility tokens, governance tokens, or stablecoins in the DeFi ecosystem.
+The ERC-20 contract defines a standard for fungible tokens, widely used for utility tokens, governance tokens, and various other applications in the DeFi ecosystem
 
 **Features:**
 
@@ -58,11 +62,7 @@ The ERC20 contract defines a standard for fungible tokens. It's commonly used fo
 - Burnable
 - Transferable
 
-Example Usage:
 
-```solidity
-function transfer(address recipient, uint256 amount) public returns (bool);
-```
 
 For detailed documentation, see [ERC20.md](docs/ERC20.md).
 

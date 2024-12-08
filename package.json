@@ -27,6 +27,8 @@
    
     "interact:ZeroToken":"npx hardhat run scripts/interactions/interact.zeroToken.js",
     "mintToken-localhost": "npx hardhat --network localhost run scripts/interactions/mintTokenFromFactory.js",
+    "mintToken-sepolia": "npx hardhat --network sepolia run scripts/interactions/mintTokenFromFactory.js",
+    "mintToken-ganache": "npx hardhat --network ganache run scripts/interactions/mintTokenFromFactory.js",
     "mintToken": "npx hardhat run scripts/interactions/mintTokenFromFactory.js"
     
   },
