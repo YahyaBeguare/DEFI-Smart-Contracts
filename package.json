@@ -6,31 +6,23 @@
     "deploy-sepolia:MyToken": "npx hardhat --network sepolia run scripts/deployement/ERC20/basicToken/deploy.Mytoken.js",
     "deploy-localhost:MyToken": "npx hardhat --network localhost run scripts/deployement/ERC20/basicToken/deploy.Mytoken.js",
     "deploy-ganache:MyToken": "npx hardhat --network ganache run scripts/deployement/ERC20/basicToken/deploy.Mytoken.js",
-
-
     "deploy:MyTokenFac": "npx hardhat run scripts/deployement/ERC20/basicToken/deploy.MytokenFac.js",
     "deploy-localhost:MyTokenFac": "npx hardhat --network localhost run scripts/deployement/ERC20/basicToken/deploy.MytokenFac.js",
     "deploy-sepolia:MyTokenFac": "npx hardhat --network sepolia run scripts/deployement/ERC20/basicToken/deploy.MytokenFac.js",
     "deploy-ganache:MyTokenFac": "npx hardhat --network ganache run scripts/deployement/ERC20/basicToken/deploy.MytokenFac.js",
-
-
     "deploy:ZeroToken": "npx hardhat run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
     "deploy-localhost:ZeroToken": "npx hardhat --network localhost run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
     "deploy-sepolia:ZeroToken": "npx hardhat --network sepolia run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
     "deploy-ganache:ZeroToken": "npx hardhat --network ganache run scripts/deployement/ERC20/advancedToken/deploy.zeroToken.js",
-
     "deploy:TokensFactory": "npx hardhat run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
     "deploy-localhost:TokensFactory": "npx hardhat --network localhost run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
     "deploy-sepolia:TokensFactory": "npx hardhat --network sepolia run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
     "deploy-ganache:TokensFactory": "npx hardhat --network ganache run scripts/deployement/ERC20/basicToken/deploy.MyTokenFactory.js",
-
-   
-    "interact:ZeroToken":"npx hardhat run scripts/interactions/interact.zeroToken.js",
+    "interact:ZeroToken": "npx hardhat run scripts/interactions/interact.zeroToken.js",
     "mintToken-localhost": "npx hardhat --network localhost run scripts/interactions/mintTokenFromFactory.js",
     "mintToken-sepolia": "npx hardhat --network sepolia run scripts/interactions/mintTokenFromFactory.js",
     "mintToken-ganache": "npx hardhat --network ganache run scripts/interactions/mintTokenFromFactory.js",
     "mintToken": "npx hardhat run scripts/interactions/mintTokenFromFactory.js"
-    
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
@@ -39,6 +31,7 @@
     "hardhat": "^2.22.10"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0",
     "dotenv": "^16.4.5"
   }
 }

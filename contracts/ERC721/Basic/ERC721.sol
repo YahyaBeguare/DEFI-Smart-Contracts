@@ -3,7 +3,7 @@
 pragma solidity ^0.8.20;
 
 // Import the IERC721Receiver interface, which is used for safe transfers to contracts
-import {IERC721Receiver} from "./IERC721Receiver.sol";
+import {IERC721Receiver} from "./IERC721Receiver.sol";    
 
 // Define the IERC165 interface which supports interface identification for smart contracts
 interface IERC165 {
