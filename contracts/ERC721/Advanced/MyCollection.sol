@@ -1,72 +1,79 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Pausable.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
-contract MyCollection is ERC721, ERC721URIStorage, ERC721Pausable, Ownable {
-    
-   uint256 public tokenCounter;
 
-    // Mapping to store token URIs for minted NFTs
-    mapping(uint256 => string) private _tokenURIs;
+contract MyCollection is ERC721, ERC721URIStorage, Ownable, ERC721Pausable {
+    uint256 public tokenCounter;
+    string private _collectionMetadataURI; // Variable for collection-level metadata
 
     // Constructor to initialize collection details and transfer ownership
     constructor(
-        string memory name,
-        string memory symbol,
-        address initialOwner
-    ) ERC721(name, symbol) {
+        string memory name, 
+        string memory symbol, 
+        address initialOwner,
+        string memory initialMetadataURI
+    ) ERC721(name, symbol) Ownable(initialOwner) { 
         tokenCounter = 0;
-        transferOwnership(initialOwner); // Set initial owner
+       _collectionMetadataURI = initialMetadataURI;
     }
 
-    // Mint function with token URI, only when not paused
-    function mint(address to, string memory tokenURI) public onlyOwner whenNotPaused {
+    // Function to mint new NFTs (onlyOwner and when not paused)
+    function mint(address to, string memory newTokenURI) public onlyOwner whenNotPaused {
         uint256 tokenId = tokenCounter;
         _safeMint(to, tokenId);
-        _setTokenURI(tokenId, tokenURI);
-
-        // Store token URI in the mapping
-        _tokenURIs[tokenId] = tokenURI;
-
+        _setTokenURI(tokenId, newTokenURI);
         tokenCounter += 1;
     }
 
-    // Function to retrieve the URI of a specific token
-    function getTokenURI(uint256 tokenId) public view returns (string memory) {
-        require(_exists(tokenId), "Token does not exist");
-        return _tokenURIs[tokenId];
+    // Function to set collection-level metadata (onlyOwner)
+    function setCollectionMetadataURI(string memory newMetadataURI) public onlyOwner {
+        _collectionMetadataURI = newMetadataURI;
     }
 
-    // Function to retrieve all minted token URIs
+    // Function to retrieve collection-level metadata
+    function collectionMetadataURI() public view returns (string memory) {
+        return _collectionMetadataURI;
+    }
+
+    // Retrieve all token URIs
     function getAllTokenURIs() public view returns (string[] memory) {
         string[] memory uris = new string[](tokenCounter);
         for (uint256 i = 0; i < tokenCounter; i++) {
-            uris[i] = _tokenURIs[i];
+            uris[i] = tokenURI(i);
         }
         return uris;
     }
 
-    // Pause the contract (only by owner)
+    // Pausable functionality
     function pause() public onlyOwner {
         _pause();
     }
 
-    // Unpause the contract (only by owner)
     function unpause() public onlyOwner {
         _unpause();
     }
 
-    // Override _beforeTokenTransfer to check pause state
-    function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 tokenId
-    ) internal override {
-        super._beforeTokenTransfer(from, to, tokenId);
-        require(!paused(), "Token transfer while paused");
+    // Override tokenURI to resolve conflicts between ERC721 and ERC721URIStorage
+    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+        return super.tokenURI(tokenId);
+    }
+
+     function _update(address to, uint256 tokenId, address auth)
+        internal
+        override(ERC721, ERC721Pausable) returns (address)
+    {      
+        return super._update(to, tokenId, auth);
+    }      
+    
+    // Override supportsInterface for compatibility with ERC721URIStorage
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721URIStorage) returns (bool) {
+        return super.supportsInterface(interfaceId);
     }
 }
+
+
