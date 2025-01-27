@@ -33,7 +33,8 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.1.0",
+    "buffer": "^6.0.3",
     "dotenv": "^16.4.5",
-    "nft.storage": "^7.2.0"
+    "pinata-web3": "^0.5.4"
   }
 }

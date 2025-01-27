@@ -1,7 +1,7 @@
 const hre = require("hardhat");
 const fs = require("fs").promises ;
 const path = require("path");
-const {upload} = require("./uploadToIPFS.js") ;
+const {upload} = require("./uploadToIPS.js") ;
 const { Blob } = require("buffer")
 const addressFile = require("../../../address.json");
 
