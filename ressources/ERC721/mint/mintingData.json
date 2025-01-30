@@ -1,0 +1,17 @@
+{
+    "mintingData": {
+        "name": "Spider",
+        "description": "The spider Robot ",
+        "ReceiverAddress": "0x",
+        "attributes": [
+            {
+                "trait_type": "Background",
+                "value": "Blue"
+            },
+            {
+                "trait_type": "Type",
+                "value": "Rare"
+            }
+        ]
+    }
+} 

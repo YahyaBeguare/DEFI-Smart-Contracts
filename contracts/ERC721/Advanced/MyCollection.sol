@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 
 contract MyCollection is ERC721, ERC721URIStorage, Ownable, ERC721Pausable {
+    uint256 public cost;
     uint256 public tokenCounter;
     string private _collectionMetadataURI; // Variable for collection-level metadata
 
@@ -16,14 +17,17 @@ contract MyCollection is ERC721, ERC721URIStorage, Ownable, ERC721Pausable {
         string memory name, 
         string memory symbol, 
         address initialOwner,
-        string memory initialMetadataURI
+        string memory initialMetadataURI,
+        uint256 _cost 
     ) ERC721(name, symbol) Ownable(initialOwner) { 
         tokenCounter = 0;
        _collectionMetadataURI = initialMetadataURI;
+        cost = _cost;
     }
 
     // Function to mint new NFTs (onlyOwner and when not paused)
-    function mint(address to, string memory newTokenURI) public onlyOwner whenNotPaused {
+    function mint(address to, string memory newTokenURI) public payable onlyOwner whenNotPaused {
+        require(msg.value >= cost, "Insufficient funds"); 
         uint256 tokenId = tokenCounter;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, newTokenURI);

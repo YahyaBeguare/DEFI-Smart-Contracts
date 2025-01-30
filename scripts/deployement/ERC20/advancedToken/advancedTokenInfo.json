@@ -1,6 +1,6 @@
 {   
     "name": "Zero Token",
-    "symbol": "ZRT",
+    "symbol": "ZR",
     "decimals": 18,
     "initialSupply": "1000000"
   }

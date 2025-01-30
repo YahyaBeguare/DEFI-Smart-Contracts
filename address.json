@@ -14,13 +14,21 @@
     "AdvancedContracts": {
       "ZeroToken": {
         "TokenName": "Zero Token",
-        "TokenSymbol": "ZRT",
-        "TokenAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        "TokenSymbol": "ZR",
+        "TokenAddress": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
         "TokenInitialSupply": "1000000"
       }
     },
     "Factory": {
       "FactoryAddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+    }
+  },
+  "ERC721_contracts": {
+    "MyCollection": {
+      "CollectionName": "Robots",
+      "CollectionSymbol": "RBT",
+      "CollectionAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "CollectionMetadata": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreid2kpbo2oh24mdf7ujwpabajpylvy5be7sjqcwiahvvnvrbsox3h4"
     }
   }
 }

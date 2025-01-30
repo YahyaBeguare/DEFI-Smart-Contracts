@@ -23,11 +23,12 @@
     "mintToken-sepolia": "npx hardhat --network sepolia run scripts/interactions/mintTokenFromFactory.js",
     "mintToken-ganache": "npx hardhat --network ganache run scripts/interactions/mintTokenFromFactory.js",
     "mintToken": "npx hardhat run scripts/interactions/mintTokenFromFactory.js",
-    "deploy-localhost:MyCollection": "npx hardhat --network localhost run scripts/deployement/ERC721/deploy.MyCollection.js"
+    "deploy-localhost:MyCollection": "npx hardhat --network localhost run scripts/deployement/ERC721/deploy.MyCollection.js",
+    "mintNFT-localhost": "npx hardhat --network localhost run scripts/deployement/ERC721/mintNFT.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "ethers": "^6.13.2",
+    "ethers": "^6.13.5",
     "fs": "^0.0.1-security",
     "hardhat": "^2.22.10"
   },
