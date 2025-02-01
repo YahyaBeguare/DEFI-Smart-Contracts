@@ -9,11 +9,14 @@ const addressFile = require("../../../address.json");
 // Path to the metadata file
 const filePath = path.join(
   __dirname,
-  "../../../ressources/ERC721/metadata/collection_metadata.json"
+  "../../../ressources/ERC721/deployement/collection_metadata.json"
 );
 
+// Path to the collectionData file
+const collectionPath = path.join(__dirname, "../../../ressources/ERC721/deployement/collectionData.json");
 // Path to the collectionInfo file
-const collectionPath = path.join(__dirname, "./collectionInfo.json");
+const collectionInfoPath = path.join(__dirname, "./collectionInfo.json");
+
 let name;
 let symbol;
 let contractAddress;
@@ -24,23 +27,28 @@ async function main() {
 
   let imageCID;
   let collectionMetadataURI;
-
+  // Read the JSON file
+  let collectionData = JSON.parse( await fs.readFile(collectionPath, "utf8"));
   // Set the image CID to the metadata.json file ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   try {
     console.info("Uploading the collection image to IPFS...");
     imageCID = await upload(
-      "./ressources/ERC721/images/collection_image.png",
+      "./ressources/ERC721/deployement/collection_image.png",
       "image/png"
     );
 
-    // Read the JSON file
-    const data = await fs.readFile(filePath, "utf8");
-
+  
     // Parse the JSON data
-    let metadata = JSON.parse(data);
+    let metadata = {
+      name: collectionData.name,
+      symbol: collectionData.symbol,
+      descripttion: collectionData.description,
+      image: imageCID ,
+      attributes: collectionData.attributes,
 
-    // Update the "image" value
-    metadata.cid.image = imageCID;
+    }
+
+   
 
     // Write the updated JSON back to the file
     await fs.writeFile(filePath, JSON.stringify(metadata, null, 2), "utf8");
@@ -55,7 +63,7 @@ async function main() {
   try {
     console.info("Uploading the collection metaData to IPFS...");
     collectionMetadataURI = await upload(
-      "./ressources/ERC721/metadata/collection_metadata.json"
+      "./ressources/ERC721/deployement/collection_metadata.json"
     );
     console.log(`Collection's metadata URI : ${collectionMetadataURI}`);
   } catch (error) {
@@ -67,16 +75,15 @@ async function main() {
   }
   // the collection metadata is uploaded to IPFS, we can now deploy the contract
   try {
-    // Read the JSON file
-    const collectionData = await fs.readFile(collectionPath, "utf8");
+    
 
     // Parse the JSON data
-    let collectionInfo = JSON.parse(collectionData);
+    let collectionInfo = JSON.parse( await fs.readFile(collectionInfoPath, "utf8"));
 
     // Get the name and symbol from the collectionInfo JSON file
-    name = collectionInfo.name;
-    symbol = collectionInfo.symbol;
-    let mintingCost = ethers.parseUnits(collectionInfo.mintingCost, "ether"); 
+    name = collectionData.name;
+    symbol = collectionData.symbol;
+    let mintingCost = ethers.parseUnits(collectionData.mintingCost, "ether"); 
     console.log("Minting cost: ", mintingCost);
     const initialOwner = deployer.address;
 
@@ -86,24 +93,27 @@ async function main() {
       symbol,
       initialOwner,
       collectionMetadataURI,
-      mintingCost,
+      mintingCost
     ]);
     await MyCollection.waitForDeployment();
     contractAddress = MyCollection.target;
 
     // Update the collectionInfo JSON file
+    collectionInfo.name = name;
+    collectionInfo.symbol = symbol;
+    collectionInfo.mintingCost = mintingCost.toString();
     collectionInfo.URI = collectionMetadataURI;
     collectionInfo.initialOwner = deployer.address;
     collectionInfo.collectionContractAddress = MyCollection.target;
 
-    // Write the updated JSON back to the file
+    // Write the updated JSON to the collectionInfo file
     await fs.writeFile(
-      collectionPath,
+      collectionInfoPath,
       JSON.stringify(collectionInfo, null, 2),
       "utf8"
     );
 
-    console.log("File successfully updated");
+    console.log("CollectionInfo successfully created");
 
     console.info(`MyCollection deployed to: ${MyCollection.target}`);
   } catch (error) {

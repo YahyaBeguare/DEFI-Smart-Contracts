@@ -1,0 +1,9 @@
+{
+    "name": "Robots",
+    "symbol": "RBT",
+    "description": "Robots are the future",
+    "mintingCost": "0.15",
+    "initialOwner": "0x98355b38557f251c992D97b60423578552DE9DC3",
+    "attributes":[]
+
+}

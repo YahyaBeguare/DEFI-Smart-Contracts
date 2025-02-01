@@ -24,7 +24,11 @@
     "mintToken-ganache": "npx hardhat --network ganache run scripts/interactions/mintTokenFromFactory.js",
     "mintToken": "npx hardhat run scripts/interactions/mintTokenFromFactory.js",
     "deploy-localhost:MyCollection": "npx hardhat --network localhost run scripts/deployement/ERC721/deploy.MyCollection.js",
-    "mintNFT-localhost": "npx hardhat --network localhost run scripts/deployement/ERC721/mintNFT.js"
+    "deploy-ganache:MyCollection": "npx hardhat --network ganache run scripts/deployement/ERC721/deploy.MyCollection.js",
+
+    "mintNFT-localhost": "npx hardhat --network localhost run scripts/deployement/ERC721/mintNFT.js",
+    "mintNFT-ganache": "npx hardhat --network ganache run scripts/deployement/ERC721/mintNFT.js"
+
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
