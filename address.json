@@ -25,10 +25,10 @@
   },
   "ERC721_contracts": {
     "MyCollection": {
-      "CollectionName": "Robots",
-      "CollectionSymbol": "RBT",
-      "CollectionAddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
-      "CollectionMetadata": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreie6p5davc4hsm2xixfzqmakzfcpklcase4nddjd5gw42lyp4gqqjq"
+      "CollectionName": "Future Robots",
+      "CollectionSymbol": "FRBT",
+      "CollectionAddress": "0x2625760C4A8e8101801D3a48eE64B2bEA42f1E96",
+      "CollectionMetadata": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreiedjplcym6lt2gpizgaxirs4atbv5n6karvhm7gfxedts2bv4lnpa"
     }
   }
 }

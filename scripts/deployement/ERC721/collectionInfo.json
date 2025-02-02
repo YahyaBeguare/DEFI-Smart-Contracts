@@ -1,8 +1,8 @@
 {
-  "name": "Robots",
-  "symbol": "RBT",
-  "mintingCost": "150000000000000000",
-  "URI": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreie6p5davc4hsm2xixfzqmakzfcpklcase4nddjd5gw42lyp4gqqjq",
+  "name": "Future Robots",
+  "symbol": "FRBT",
+  "mintingCost": "50000000000000000",
+  "URI": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreiedjplcym6lt2gpizgaxirs4atbv5n6karvhm7gfxedts2bv4lnpa",
   "initialOwner": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-  "collectionContractAddress": "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707"
+  "collectionContractAddress": "0x2625760C4A8e8101801D3a48eE64B2bEA42f1E96"
 }

@@ -14,9 +14,9 @@ async function upload(_filePath){
   try {
     const blob = new Blob([fs.readFileSync(_filePath)]);
     const upload = await pinata.upload.file(blob);
-    console.log(upload) ;
+    // console.log(upload) ;
     const url= "https://"+PinataGateway+ "/ipfs/"+ upload.IpfsHash ;
-    console.log("here's the CID:", url);
+    // console.log("here's the CID:", url);
     return url ;
   } catch (error) {
     console.log(error)

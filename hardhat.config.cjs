@@ -1,9 +1,9 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
+//require("./tasks/rsa.test");
 
-
-SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL; 
-WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY; 
+SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL;
+WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY;
 GANACHE_ACCOUNT = process.env.GANACHE_WALLET_PRIVATE_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -16,8 +16,8 @@ module.exports = {
       },
     },
   },
-  // this line sets the default network to use when running tasks or scripts 
-   defaultNetwork: "ganache",
+  // this line sets the default network to use when running tasks or scripts
+  defaultNetwork: "localhost",
   networks: {
     hardhat: {
       _name: "localhost",

@@ -11,7 +11,7 @@ describe("MyCollection", function () {
     beforeEach(async function () {
         // Get the ContractFactory and Signers
         MyCollection = await ethers.getContractFactory("MyCollection");
-        [owner, addr1, addr2] = await ethers.getSigners();
+        [owner,nonOwner, addr1, addr2] = await ethers.getSigners();
 
         // Deploy the contract
         myCollection = await MyCollection.deploy(
@@ -85,7 +85,7 @@ describe("MyCollection", function () {
                 myCollection.mint(addr1.address, tokenURI, {
                     value: ethers.parseEther("0.1"),
                 })
-            ).to.be.revertedWith("Pausable: paused");
+            ).to.be.revertedWithCustomError(myCollection, "EnforcedPause"); // Check for the custom error
         });
     });
 
@@ -105,8 +105,9 @@ describe("MyCollection", function () {
 
             // Attempt to update collection metadata URI as a non-owner
             await expect(
-                myCollection.connect(addr1).setCollectionMetadataURI(newMetadataURI)
-            ).to.be.revertedWith("Ownable: caller is not the owner");
+                myCollection.connect(nonOwner).setCollectionMetadataURI(newMetadataURI)
+            ).to.be.revertedWithCustomError(myCollection, "OwnableUnauthorizedAccount")
+            .withArgs(nonOwner.address); // Check for the custom error
         });
     });
 
@@ -123,10 +124,12 @@ describe("MyCollection", function () {
 
         it("Should fail if a non-owner tries to pause or unpause the contract", async function () {
             // Attempt to pause as a non-owner
-            await expect(myCollection.connect(addr1).pause()).to.be.revertedWith("Ownable: caller is not the owner");
+            await expect(myCollection.connect(addr1).pause()).to.be.revertedWithCustomError(myCollection, "OwnableUnauthorizedAccount")
+            .withArgs(addr1.address); // Check for the custom error
 
             // Attempt to unpause as a non-owner
-            await expect(myCollection.connect(addr1).unpause()).to.be.revertedWith("Ownable: caller is not the owner");
+            await expect(myCollection.connect(addr1).unpause()).to.be.revertedWithCustomError(myCollection, "OwnableUnauthorizedAccount")
+            .withArgs(addr1.address); // Check for the custom error
         });
     });
 

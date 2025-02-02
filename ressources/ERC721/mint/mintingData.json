@@ -1,8 +1,8 @@
 {
     "mintingData": {
-        "name": "Robots Gang",
-        "description": "The Robots Gang NFT ",
-        "ReceiverAddress": "0x49351e18c721b25027Ad5bf940708F6Be37C636e",
+        "name": "Spider",
+        "description": "The spider NFT ",
+        "ReceiverAddress": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
         
         "attributes": [
             {

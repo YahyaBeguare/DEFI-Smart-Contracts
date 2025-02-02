@@ -7,7 +7,7 @@ const { Blob } = require("buffer");
 
 const addressFile = require("../../../address.json");
 const mintingFile = require("../../../ressources/ERC721/mint/mintingData.json");
-const imagesFolder = "./ressources/ERC721/images";
+const imagesFolder = "./ressources/ERC721/mint/images";
 let items = [];
 let imagePath;
 let imageCID;
@@ -60,22 +60,18 @@ async function mint() {
     // Dynamically generate the file path
     imagePath = path.join(
       __dirname,
-      "../../../ressources/ERC721/images",
+      "../../../ressources/ERC721/mint/images",
       items[0]
     );
     // Dynamically generate the metadata file path
 
     metadataFilePath =
-      "./ressources/ERC721/metadata/" +
+      "./ressources/ERC721/mint/metadata/" +
       path.basename(items[0], path.extname(items[0])) +
       ".json";
-    // path.join(
-    //   __dirname,
-    //   "../../../ressources/ERC721/metadata/",
-    //   path.basename(items[0], path.extname(items[0])) + ".json"
-    // );
+ 
 
-    console.log("Generated file path:", metadataFilePath);
+    // console.log("Generated file path:", metadataFilePath);
 
     // Upload the image to IPFS
     try {
@@ -137,7 +133,7 @@ async function mint() {
 
     // Wait for the transaction to be mined
     const receipt = await mintTx.wait();
-    console.log("Mint transaction confirmed. Receipt:", receipt);
+    console.info("Mint transaction confirmed. Transaction Hash:", receipt.hash);
   } catch (error) {
     console.error("Error minting NFT:", error);
   }
