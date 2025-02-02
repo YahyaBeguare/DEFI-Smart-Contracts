@@ -78,6 +78,17 @@ contract MyCollection is ERC721, ERC721URIStorage, Ownable, ERC721Pausable {
     function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721URIStorage) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
+
+    function burn(uint256 tokenId) public {
+    // Ensure the contract is not paused before burning
+    require(!paused(), "Contract is paused, cannot burn token");
+    // Retrieve the token owner (this reverts if the token doesn't exist)
+    address tokenOwner = ownerOf(tokenId);
+    // Check that the caller is either the owner or an approved operator
+    require(_isAuthorized(tokenOwner, _msgSender(), tokenId), "Caller is not owner nor approved");
+    // Burn the token (ERC721URIStorage's _burn clears the token URI)
+    _burn(tokenId);
+    }
 }
 
 

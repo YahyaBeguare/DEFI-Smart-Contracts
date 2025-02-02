@@ -23,11 +23,15 @@
     "mintToken-sepolia": "npx hardhat --network sepolia run scripts/interactions/mintTokenFromFactory.js",
     "mintToken-ganache": "npx hardhat --network ganache run scripts/interactions/mintTokenFromFactory.js",
     "mintToken": "npx hardhat run scripts/interactions/mintTokenFromFactory.js",
+    "deploy:MyCollection": "npx hardhat run scripts/deployement/ERC721/deploy.MyCollection.js",
     "deploy-localhost:MyCollection": "npx hardhat --network localhost run scripts/deployement/ERC721/deploy.MyCollection.js",
     "deploy-ganache:MyCollection": "npx hardhat --network ganache run scripts/deployement/ERC721/deploy.MyCollection.js",
+    "deploy-sepolia:MyCollection":"npx hardhat --network sepolia run scripts/deployement/ERC721/deploy.MyCollection.js",
+    "mintNFT": "npx hardhat run scripts/deployement/ERC721/mintNFT.js",
     "mintNFT-localhost": "npx hardhat --network localhost run scripts/deployement/ERC721/mintNFT.js",
     "mintNFT-ganache": "npx hardhat --network ganache run scripts/deployement/ERC721/mintNFT.js",
-    "test-MyCollection": "npx hardhat test test/ERC721/myCollection.test.js"
+    "mintNFT-sepolia": "npx hardhat --network sepolia run scripts/deployement/ERC721/mintNFT.js",
+    "test:MyCollection": "npx hardhat test test/ERC721/myCollection.test.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
