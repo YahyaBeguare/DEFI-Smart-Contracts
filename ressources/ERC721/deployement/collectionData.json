@@ -1,0 +1,9 @@
+{
+    "name": "Future Robots",
+    "symbol": "FRBT",
+    "description": "Robots are the future",
+    "mintingCost": "0.05",
+    "initialOwner": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+    "attributes":[]
+
+}

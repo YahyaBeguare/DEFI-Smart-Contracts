@@ -1,0 +1,15 @@
+{
+  "name": "Spider",
+  "description": "The spider NFT ",
+  "image": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreicmubpqwpchuf3ny3uxbg6t4xpv4oeme2p6jd72xgjvbwk2y6gcni",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Rare"
+    }
+  ]
+}

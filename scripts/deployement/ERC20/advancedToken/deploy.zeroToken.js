@@ -64,4 +64,4 @@ main().catch((error) => {
 });
 
 
-module.exports = { deployer };  
+module.exports = { deployMyToken };  
