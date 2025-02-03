@@ -120,7 +120,7 @@ You could configure the defaultNetwork in the hardhat.config.js file, and set it
 
 ### Deployment Prerequisites
 
-#### ERC20 ontracts
+#### ERC20 Contracts
 
 - Before deploying MyTokenFac.sol contract
 
@@ -133,7 +133,7 @@ You could configure the defaultNetwork in the hardhat.config.js file, and set it
 - Before deploying ZeroToken.sol contract
   - Set the token details in the "scripts\deployement\ERC20\advancedToken\advancedTokenInfo.json" file .
 
-#### ERC721 ontracts
+#### ERC721 Contracts
 
 - Before deploying MyCollection.sol contract you should :
   - Make an account on pinata (https://docs.pinata.cloud/quickstart).
@@ -145,7 +145,7 @@ You could configure the defaultNetwork in the hardhat.config.js file, and set it
 
 Then depending on the defaultNetwork run the deployement command :
 
-##### ERC20 ontracts
+##### ERC20 Contracts
 
 **MyToken.sol**
 
@@ -221,7 +221,7 @@ npm run deploy-localhost:ZeroToken
 npm run deploy-localhost:TokensFactory
 ```
 
-##### ERC721 contracts
+##### ERC721 Contracts
 
 **MyCollection.sol**
 
@@ -242,7 +242,7 @@ ganache-cli
 Or just open the ganache app and log to the configured workspace .
 Deploy the contracts:
 
-##### ERC20 contracts
+##### ERC20 Contracts
 
 **MyToken.sol**
 
@@ -268,7 +268,7 @@ npm run deploy-ganache:ZeroToken
 npm run deploy-ganache:TokensFactory
 ```
 
-##### ERC721 contracts
+##### ERC721 Contracts
 
 **MyCollection.sol**
 
@@ -290,7 +290,7 @@ To deploy on Sepolia testnet, make sure you have:
 
 Deploy to Sepolia:
 
-##### ERC20 contracts
+##### ERC20 Contracts
 
 **MyToken.sol**
 
@@ -316,7 +316,7 @@ npm run deploy-sepolia:ZeroToken
 npm run deploy-sepolia:TokensFactory
 ```
 
-##### ERC721 contracts
+##### ERC721 Contracts
 
 **MyCollection.sol**
 
