@@ -31,11 +31,11 @@ Before getting started, ensure you have the following installed:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/yahya-beg/DEFI-Smart-Contracts
+   git clone https://github.com/YahyaBeguare/DEFI-Smart-Contracts
    ```
-
+  Access the folder you cloned the project to 
    ```
-   cd defi-protocols
+   cd "YOUR FOLDER NAME"
    ```
 
 2. Install dependencies:
@@ -65,25 +65,25 @@ The ERC-20 contract defines a standard for fungible tokens, widely used for util
 
 For detailed documentation, see [ERC20.md](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/).
 
-#### + Basic Tokens
+#### + Basic Tokens Contracts
 
-**MyToken**
+**MyToken.sol**
 
 The MToken.sol contract implements fundamental token functionalities, including transferring tokens, approving allowances, and transferring on behalf of others using allowances. It sets an initial supply of 1 million tokens assigned to the deployer and includes events for transparency. The code is structured with clear validations and safeguards for common token operations.
 
-**MyTokenFac**
+**MyTokenFac.sol**
 
 The MyTokenFac.sol is an ERC20-like factory contract that allows the creation of tokens with customizable properties (name, symbol, decimals, and total supply). The constructor assigns the initial supply to the deployer's balance. It includes essential ERC20 functionalities like token transfers, approval for spending, and transferring tokens on behalf of others.
 
 You could customise the token properties in the tokenInfo.json file located in scripts\deployement\ERC20\basicToken\tokenInfo.json .
 
-**TokensFactory**
+**TokensFactory.sol**
 
 The TokensFactory contract is a smart contract that allows users to deploy multiple instances of customizable ERC-20 tokens through the MyTokenFac contract. It stores key details about each deployed token, such as its name, symbol, decimals, initial supply, and contract address. The contract emits an event when a new token is created and provides functions to retrieve token details by index or name.
 
-#### + Advanced Tokens
+#### + Advanced Tokens Contracts
 
-**ZeroToken**
+**ZeroToken.sol**
 
 The ZeroToken contract is an ERC20-compliant implementation that supports minting and burning of tokens. It includes an ownership model, where only the owner can mint new tokens. The contract also adheres to the IERC20 interface, ensuring compatibility with ERC20 tools and standards. Key functionalities include standard ERC20 transfers, allowance-based token spending, and the ability to burn tokens from the caller or another account with an approved allowance.
 
@@ -109,10 +109,10 @@ The ERC-721 contract defines a standard for non-fungible tokens (NFTs), widely u
 
 For detailed documentation, see [ERC721.md](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/).
 
-#### + Advanced NFTs
+#### + Advanced NFTs Contracts
 
 **MyCollection.sol**
-MyCollection is an ERC-721 NFT contract that allows the owner to mint and burn tokens, while managing per-token metadata via URI storage. The contract is pausable, meaning token transfers and modifications (minting/burning) can be temporarily halted. It also stores a collection-level metadata URI to represent the overall collection.
+MyCollection is an ERC-721 NFT contract that allows the owner to mint and burn tokens, while managing per-token metadata via URI storage. The contract is pausable, meaning token transfers and modifications (minting/burning) can be temporarily halted. It also stores a collection-level metadata URI to represent the overall collection. And it uses the openzeppelin implementation for a better security . 
 
 ## Deployment
 
