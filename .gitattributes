@@ -1,1 +1,7 @@
 *.sol linguist-language=Solidity
+
+scripts/deployement/ERC20/basicToken/** linguist-vendored
+scripts/deployement/ERC20/advancedToken/** linguist-vendored
+scripts/deployement/ERC721/** linguist-vendored
+test/ERC721/myCollection.test.js linguist-vendored
+node_modules/chai/** linguist-vendored
