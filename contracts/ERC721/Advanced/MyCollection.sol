@@ -25,9 +25,12 @@ contract MyCollection is ERC721, ERC721URIStorage, Ownable, ERC721Pausable {
         cost = _cost;
     }
 
-    // Function to mint new NFTs (onlyOwner and when not paused)
-    function mint(address to, string memory newTokenURI) public payable onlyOwner whenNotPaused {
-        require(msg.value >= cost, "Insufficient funds"); 
+    // Function to mint new NFTs (when not paused)
+    function mint(address to, string memory newTokenURI) public payable  whenNotPaused {
+        if (msg.sender != owner()) {
+            require(msg.value >= cost, "Insufficient funds"); 
+        }
+        
         uint256 tokenId = tokenCounter;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, newTokenURI);

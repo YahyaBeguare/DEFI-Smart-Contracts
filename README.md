@@ -112,7 +112,8 @@ For detailed documentation, see [ERC721.md](https://ethereum.org/en/developers/d
 #### + Advanced NFTs Contracts
 
 **MyCollection.sol**
-MyCollection is an ERC-721 NFT contract that allows the owner to mint and burn tokens, while managing per-token metadata via URI storage. The contract is pausable, meaning token transfers and modifications (minting/burning) can be temporarily halted. It also stores a collection-level metadata URI to represent the overall collection. And it uses the openzeppelin implementation for a better security . 
+MyCollection is an ERC-721 NFT contract that allows the owner to mint and burn tokens ans sets the cost to mint tokens , while managing per-token metadata via URI storage. The contract is pausable, meaning token transfers and modifications (minting/burning) can be temporarily halted. It also stores a collection-level metadata URI to represent the overall collection. And it uses the openzeppelin implementation for a better security . 
+Noting that the owner of the contract could mint new tokens for free, but other users must pay the cost setted by the owner in the samrt contract to mint their tokens .
 
 ## Deployment
 
