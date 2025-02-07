@@ -7,7 +7,7 @@ import {ERC1155Pausable} from "@openzeppelin/contracts/token/ERC1155/extensions/
 import {ERC1155Supply} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-contract AdvToken is ERC1155, Ownable, ERC1155Pausable, ERC1155Burnable, ERC1155Supply {
+contract AdvContract is ERC1155, Ownable, ERC1155Pausable, ERC1155Burnable, ERC1155Supply {
     constructor(address initialOwner) ERC1155("") Ownable(initialOwner) {}
 
     function setURI(string memory newuri) public onlyOwner {
