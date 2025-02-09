@@ -2,16 +2,16 @@
     "mintingData": {
         "name": "Spider",
         "description": "The spider NFT ",
-        "ReceiverAddress": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+        "ReceiverAddress": "0x999fCE9A603d898c1d30318B9AeCBa9eb18919D3",
         
         "attributes": [
             {
                 "trait_type": "Background",
-                "value": "Blue"
+                "value": "Black"
             },
             {
                 "trait_type": "Type",
-                "value": "Rare"
+                "value": "Golden"
             }
         ]
     }

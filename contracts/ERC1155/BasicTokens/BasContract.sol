@@ -6,7 +6,7 @@ import {ERC1155Burnable} from "@openzeppelin/contracts/token/ERC1155/extensions/
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract BasContract is ERC1155, ERC1155Burnable, Ownable {
-    constructor() ERC1155("") Ownable(msg.sender) {}
+    constructor(string memory _uri) ERC1155(_uri) Ownable(msg.sender) {}
 
     function mint(address account, uint256 id, uint256 amount, bytes memory data)
         public

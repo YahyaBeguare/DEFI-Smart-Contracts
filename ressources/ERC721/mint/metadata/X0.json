@@ -1,0 +1,15 @@
+{
+  "name": "X0",
+  "description": "X0 Robot NFT ",
+  "image": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreihvvw52ycteyqi6v5vmo3sdyv3y3dew44sb6e5evoa4y7z54zu6mu",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Rare"
+    }
+  ]
+}
