@@ -39,7 +39,8 @@
     "test:BasContract": "npx hardhat test test/ERC1155/basContract.test.js",
     "deploy-localhost:AdvContract": "npx hardhat --network localhost run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "deploy-ganache:AdvContract": "npx hardhat --network ganache run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
-    "deploy-sepolia:AdvContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js"
+    "deploy-sepolia:AdvContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
+    "test:AdvContract": "npx hardhat test test/ERC1155/advContract.test.js"
 
   },
   "devDependencies": {

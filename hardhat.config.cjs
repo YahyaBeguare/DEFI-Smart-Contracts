@@ -22,7 +22,9 @@ module.exports = {
     currency: "USD",           // Currency in which to report costs
     coinmarketcap: COINMARKETCAP,  
     outputFile: "gas-report.txt",  // (Optional) File to save the report
-    noColors: true,            
+    noColors: false, 
+    // gasPrice: 20, 
+   offline: true,           
   },
   // this line sets the default network to use when running tasks or scripts
   defaultNetwork: "localhost",
