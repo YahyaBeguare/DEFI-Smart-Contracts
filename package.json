@@ -40,15 +40,16 @@
     "deploy-localhost:AdvContract": "npx hardhat --network localhost run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "deploy-ganache:AdvContract": "npx hardhat --network ganache run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "deploy-sepolia:AdvContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
-    "test:AdvContract": "npx hardhat test test/ERC1155/advContract.test.js"
-
+    "test:AdvContract": "npx hardhat test test/ERC1155/advContract.test.js",
+    "uploadToIPFS:AdvContract": "node scripts/deployement/ERC1155/Advanced/uploadToIPFS.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "ethers": "^6.13.5",
     "fs": "^0.0.1-security",
     "hardhat": "^2.22.10",
-    "hardhat-gas-reporter": "^2.2.2"
+    "hardhat-gas-reporter": "^2.2.2",
+    "recursive-fs": "^2.1.0"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.1.0",
