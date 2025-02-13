@@ -1,16 +1,20 @@
 const hre = require("hardhat");
-const fs = require("fs");
+const fs = require("fs").promises;
+const path = require("path");
+
+
 const addressFile = require("../../../../address.json");
-const contractDetails= path.join(__dirname, "../../../../ressources/ERC1155/Basic/basContractArgs.json");
+const contractDetails= path.join(__dirname, "../../../../ressources/ERC1155/Basic/BasContractArgs.json");
 
 let ContractAddress;
-let BaseURI;
+let baseURI;
 
 async function deploy() {
   try{
     // getting base URI (if not present, set to empty string)
     let BasContractArgs = JSON.parse(await fs.readFile(contractDetails, "utf8"));
-    BaseURI = BasContractArgs.baseURI;
+    baseURI = BasContractArgs.baseMetadataURI;
+    console.log("Base URI: ", baseURI);
   } catch (err) {
     console.error("Error reading contract details: ", err);
   }
@@ -18,7 +22,7 @@ async function deploy() {
     console.log("Deploying BasContrat...");
     const deployer = (await hre.ethers.getSigners())[0];
     // Deploy BasContract
-    const BasContract = await hre.ethers.deployContract("BasContract",[BaseURI]);
+    const BasContract = await hre.ethers.deployContract("BasContract",[baseURI]);
     await BasContract.waitForDeployment();
     ContractAddress = BasContract.target;
     console.log("BasContract deployed at: ", BasContract.target);
@@ -30,12 +34,13 @@ async function deploy() {
     addressFile["ERC1155_contracts"]["BasicContracts"]["BasContract"][
       "ContractAddress"
     ] = ContractAddress;
-    fs.writeFileSync("./address.json", JSON.stringify(addressFile, null, 2));
+    fs.writeFile("./address.json", JSON.stringify(addressFile, null, 2));
   } catch (err) {
     console.error("Error: ", err);
   }
 }
 
-deploy()
-  .then(() => process.exit(0))
-  .catch((err) => console.error(err));
+deploy().catch((error) => {
+  console.error("Deployment script error:", error.message || error);
+  process.exit(1);
+}); 

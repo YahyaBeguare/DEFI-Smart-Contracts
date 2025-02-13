@@ -5,6 +5,7 @@ const addressFile= require("../../../../address.json");
 const contractDetails= path.join(__dirname, "../../../../ressources/ERC1155/Advanced/AdvContractArgs.json");
 let ContractAddress;
 let initialOwner;
+let baseURI;
 
 async function deploy(){
     try{
@@ -13,6 +14,7 @@ async function deploy(){
     //  getting initial owner address (if not present, set to deployer address)
     let AdvContractArgs= JSON.parse(await fs.readFile(contractDetails, "utf8"));
     initialOwner= AdvContractArgs.initialOwner ;
+    baseURI= AdvContractArgs.baseMetadataURI;
     console.log("Initial owner address: ", initialOwner);
     // Check if initialOwner is a valid address
     if (!initialOwner || !hre.ethers.isAddress(initialOwner)) {
@@ -20,7 +22,7 @@ async function deploy(){
         console.info("Initial owner address not provided or invalid. Using deployer address",initialOwner," as initial owner.");
       }
     //  Deploying AdvContract
-    const AdvContract= await hre.ethers.deployContract("AdvContract",[initialOwner]);
+    const AdvContract= await hre.ethers.deployContract("AdvContract",[initialOwner, baseURI]);
     await AdvContract.waitForDeployment();
     ContractAddress= AdvContract.target;
     console.log("AdvContract deployed at: ", AdvContract.target);

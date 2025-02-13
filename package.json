@@ -41,18 +41,22 @@
     "deploy-ganache:AdvContract": "npx hardhat --network ganache run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "deploy-sepolia:AdvContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "test:AdvContract": "npx hardhat test test/ERC1155/advContract.test.js",
-    "uploadToIPFS:AdvContract": "node scripts/deployement/ERC1155/Advanced/uploadToIPFS.js"
+    "uploadImages:AdvContract": "node scripts/deployement/ERC1155/Advanced/uploadImages.js",
+    "uploadMetadata:AdvContract": " node scripts/deployement/ERC1155/Advanced/uploadMetadata.js",
+    "uploadImages:BasContract": "node scripts/deployement/ERC1155/Basic/uploadImages.js",
+    "uploadMetadata:BasContract": " node scripts/deployement/ERC1155/Basic/uploadMetadata.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "ethers": "^6.13.5",
     "fs": "^0.0.1-security",
+    "got": "^14.4.6",
     "hardhat": "^2.22.10",
-    "hardhat-gas-reporter": "^2.2.2",
     "recursive-fs": "^2.1.0"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.1.0",
+    "base-path-converter": "^1.0.2",
     "buffer": "^6.0.3",
     "dotenv": "^16.4.5",
     "pinata-web3": "^0.5.4"
