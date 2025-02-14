@@ -3,7 +3,7 @@ This document explain step by step how to interact with the AdvContract.sol cont
 Ps: You could use a different network, just replace "localhost" with the name of the network you want to use(sepolia, rinkeby, ganache...) and set the network in the `"hardhat.config.js"` file .
 ## Prerequisites
 
-- Ensure you have setted the tokens jpg images in the `"ressources\ERC1155\Advanced\TokensPictures"` folder and named them with their ids starting from 1 .
+- Ensure you have setted the tokens images in the  `"ressources\ERC1155\Advanced\TokensPictures"` folder and named them with their ids starting from 1, and all images should have the same extention for a better baseURI compatibility. Set the images extention in the `"ressources\ERC1155\Advanced\imageExtension.json"` file  .
 
 - Ensure you have setted the initialOwner of the contract in the `"ressources\ERC1155\Advanced\AdvContractArgs.json"` file . If not the deployer address will be setted automatically as the initial owner .
 - Make sure the Hardhat network is running(just in this case to interact using the hardhat network).

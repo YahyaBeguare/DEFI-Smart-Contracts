@@ -5,7 +5,7 @@ Ps: You could use a different network, just replace "localhost" with the name of
 
 ## Prerequisites
 
-- Ensure you have setted the tokens jpg images in the `"ressources\ERC1155\Basic\TokensPictures"` folder and named them with their ids starting from 1.
+ - Ensure you have setted the tokens images in the `"ressources\ERC1155\Basic\TokensPictures"` folder and named them with their ids starting from 1, and all images should have the same extention for a better baseURI compatibility. Set the images extention in the `"ressources\ERC1155\Basic\imageExtension.json"` file  .
 - Make sure the Hardhat network is running(just in this case to interact using the hardhat network).
 
 ## Steps to Interact with the Deployed Contract

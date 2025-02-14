@@ -5,9 +5,11 @@ const fs = require("fs").promises;
 dotenv.config();
 
 const folderPath = "./ressources/ERC1155/Advanced/TokensMetadata";
+const extentionFile= require("../../../../ressources/ERC1155/Advanced/imageExtension.json");
 const contractArgsPath = path.join(__dirname,"../../../../ressources/ERC1155/Advanced/AdvContractArgs.json");
 const PinataGateway = process.env.GATEWAY_URL;
 let baseMetadataURI;
+let imageExtension;
 async function uploadImages() {
     // Upload the metadata to IPFS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   try {
@@ -24,9 +26,12 @@ async function uploadImages() {
 //   Set the base URI for the metadata +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   try {
     let contractArgs = JSON.parse( await fs.readFile(contractArgsPath, "utf8"));
-
-    contractArgs.baseMetadataURI = baseMetadataURI + "/{id}";
-
+        //  get the images extention
+    imageExtension = extentionFile["imageExtension"] ;
+    const baseURI = baseMetadataURI + "/{id}."+imageExtension;
+    console.log("images extension: ",imageExtension);
+    contractArgs.baseMetadataURI = baseURI ;
+    console.log("baseURI :", baseURI);
      // Write the updated JSON to the contractArgs file
      await fs.writeFile(
         contractArgsPath,

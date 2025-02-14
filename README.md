@@ -16,7 +16,7 @@ This repository contains implementations of various DeFi protocols using the Eth
 5. [Deployment](#deployment)
 6. [Testing](#testing)
 7. [Interacting with the Contracts](#interacting-with-the-contracts)
-
+8. [Conclusion](#conclusion)
 ## Prerequisites
 
 Before getting started, ensure you have the following installed:
@@ -222,10 +222,10 @@ You could configure the defaultNetwork in the hardhat.config.js file, and set it
   - Make an account on pinata (https://docs.pinata.cloud/quickstart).
   - Set the PINATA_JWT and the GATEWAY_URL in the .env file .
 
-  - Ensure you have setted the tokens jpg images in the `"ressources\ERC1155\Basic\TokensPictures"`/ `"ressources\ERC1155\Advanced\TokensPictures"` folder and named them with their ids starting from 1.
+  - Ensure you have setted the tokens images in the `"ressources\ERC1155\Basic\TokensPictures"`/ `"ressources\ERC1155\Advanced\TokensPictures"` folder and named them with their ids starting from 1, and all images should have the same extention for a better baseURI compatibility. Set the images extention in the `"ressources\ERC1155\Basic\imageExtension.json"`/ `"ressources\ERC1155\Advanced\imageExtension.json"` file  .
 
 - For the AdvContract, ensure you have setted the initialOwner of the contract in the `"ressources\ERC1155\Advanced\AdvContractArgs.json"` file . If not the deployer address will be setted automatically as the initial owner .
-- Run the following command to upload the tokens images to IPS (first command for BasContract and the second is for AdvContract):
+- Run the following command to upload the tokens images to IPFS (first command for BasContract and the second is for AdvContract):
 
 ```sh
 npm run uploadImages:BasContract
@@ -277,7 +277,7 @@ and a NonFungible token's metadata :
 }
 ```
 
-- Then run following command to upload the tokens metadata to IPFS :
+- Then run the following command to upload the tokens metadata to IPFS :
 
 ```sh
 npm run uploadMetadata:BasContract
@@ -532,7 +532,7 @@ Ps: Once a contract is deployed, you could check its details on address.json fil
 
 ## Testing
 
-You can run the complete test suite for the smart contracts using the following commands, and when you run the tests, a gas report will automatically be generated and displayed in the console. This report provides detailed insights into the gas consumption of each contract function, helping you optimize for efficiency and cost:
+You can run the complete test suite for the smart contracts using the following commands, and when you run the tests, a gas report will automatically be generated and in the root of the project. This report provides detailed insights into the gas consumption of each contract function, helping you optimize for efficiency and cost:
 
 ### ERC721
 
@@ -638,7 +638,7 @@ Check `"scripts\interactions\ERC721\interactInConsole.md"` file for more details
 
 **BasContract.sol and AdvContract.sol**
 
-To mint new tokens on the BasContract/AdvContracts contrat,execute the minting script by running the following command(first for BasContract and second for AdvContract) :
+To mint new tokens on the BasContract/AdvContracts contrat,set the minting Details( receiver address , token id, amount) in the `"ressources\ERC1155\Basic\MintingFile.json"`/ `"ressources\ERC1155\Advanced\MintingFile.json"` file, and execute the minting script by running the following command(first for BasContract and second for AdvContract) :
 
 ```sh
 npm run mintToken:BasContract
@@ -647,3 +647,10 @@ npm run mintToken:BasContract
 ```sh
 npm run mintToken:AdvContract
 ```
+Check `"scripts\interactions\ERC1155\interactWithBasContractInConsole.md"` / `"scripts\interactions\ERC1155\interactWithAdvContractInConsole.md"` file for more details to interact with the BasContract/AdvContract contract and use other functionalities.
+
+
+
+
+## Conclusion
+Thank you for exploring my DeFi project! i hope you find my work both innovative and useful. i welcome your feedback, contributions, and any questions you may have—feel free to reach out through my socials. If you like what you see, please consider adding a star to my GitHub repository. Your support helps us grow and continue improving the project!
