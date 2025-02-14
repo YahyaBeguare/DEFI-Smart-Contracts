@@ -1,8 +1,12 @@
 # Interacting with the Deployed Contract in Hardhat Console
 
+This document explain step by step how to interact with the MyCollection.sol contract using the hardhat network to mint and Burn NFTs , get the contract name, symbol and NFTs uri and check token's ownership .
+Ps: You could use a different network, just replace "localhost" with the name of the network you want to use(sepolia, rinkeby, ganache...) and set the network in the `"hardhat.config.js"` file .
 ## Prerequisites
-- Ensure you have deployed your contract using Hardhat.
-- Make sure the Hardhat network is running.
+- Ensure you have setted the collection_image.png in the `"ressources/ERC721/deployement"` folder .
+- Ensure you have setted the contract Details in the `"collectionData.json"` file located at `"ressources/ERC721/deployement"` folder .
+- Ensure that NFTs images are stored on IPFS and you have their CIDs (or you could use the prebuilt script to mint the tokens that automate this functionnality).
+- Make sure the Hardhat network is running(just in this case to interact using the hardhat network).
 
 ## Steps to Interact with the Deployed Contract
 
@@ -11,11 +15,11 @@ Open a terminal and start the Hardhat network:
 ```sh
 npx hardhat node
 ```
-
+Ps: This step is not required if another network is used .
 ### 2. Deploy the Contract
 In another terminal, deploy your contract:
 ```sh
-npx hardhat run scripts/deploy.MyCollection.js --network localhost
+npx hardhat run scripts/deployement/ERC721/deploy.MyCollection.js --network localhost
 ```
 
 ### 3. Open the Hardhat Console
@@ -30,7 +34,7 @@ In the Hardhat console, get the deployed contract instance:
 const MyCollection = await ethers.getContractFactory("MyCollection");
 const myCollection = await MyCollection.attach("deployed_contract_address");
 ```
-Replace `"deployed_contract_address"` with the actual address of your deployed contract.
+Replace `"deployed_contract_address"` with the actual address of your deployed contract (you could get it from the adress.json file in the project's root).
 
 ### 5. Interact with the Contract
 

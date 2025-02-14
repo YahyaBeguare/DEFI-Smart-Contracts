@@ -26,21 +26,43 @@
     "deploy:MyCollection": "npx hardhat run scripts/deployement/ERC721/deploy.MyCollection.js",
     "deploy-localhost:MyCollection": "npx hardhat --network localhost run scripts/deployement/ERC721/deploy.MyCollection.js",
     "deploy-ganache:MyCollection": "npx hardhat --network ganache run scripts/deployement/ERC721/deploy.MyCollection.js",
-    "deploy-sepolia:MyCollection":"npx hardhat --network sepolia run scripts/deployement/ERC721/deploy.MyCollection.js",
+    "deploy-sepolia:MyCollection": "npx hardhat --network sepolia run scripts/deployement/ERC721/deploy.MyCollection.js",
     "mintNFT": "npx hardhat run scripts/deployement/ERC721/mintNFT.js",
     "mintNFT-localhost": "npx hardhat --network localhost run scripts/deployement/ERC721/mintNFT.js",
     "mintNFT-ganache": "npx hardhat --network ganache run scripts/deployement/ERC721/mintNFT.js",
     "mintNFT-sepolia": "npx hardhat --network sepolia run scripts/deployement/ERC721/mintNFT.js",
-    "test:MyCollection": "npx hardhat test test/ERC721/myCollection.test.js"
+    "test:MyCollection": "npx hardhat test test/ERC721/myCollection.test.js",
+    "deploy:BasToken": "npx hardhat run scripts/deployement/ERC1155/Basic/deploy.BasContract.js",
+    "deploy-localhost:BasContract": "npx hardhat --network localhost run scripts/deployement/ERC1155/Basic/deploy.BasContract.js",
+    "deploy-ganache:BasContract": "npx hardhat --network ganache run scripts/deployement/ERC1155/Basic/deploy.BasContract.js",
+    "deploy-sepolia:BasContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Basic/deploy.BasContract.js",
+    "test:BasContract": "npx hardhat test test/ERC1155/basContract.test.js",
+    "deploy:AdvContract": "npx hardhat run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
+    "deploy-localhost:AdvContract": "npx hardhat --network localhost run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
+    "deploy-ganache:AdvContract": "npx hardhat --network ganache run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
+    "deploy-sepolia:AdvContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
+    "test:AdvContract": "npx hardhat test test/ERC1155/advContract.test.js",
+    "uploadImages:AdvContract": "node scripts/deployement/ERC1155/Advanced/uploadImages.js",
+    "uploadMetadata:AdvContract": " node scripts/deployement/ERC1155/Advanced/uploadMetadata.js",
+    "uploadImages:BasContract": "node scripts/deployement/ERC1155/Basic/uploadImages.js",
+    "uploadMetadata:BasContract": " node scripts/deployement/ERC1155/Basic/uploadMetadata.js",
+    "mintToken:BasContract": "npx hardhat run scripts/interactions/ERC1155/mintToken_Bas.js ",
+    "mintToken:AdvContract": "npx hardhat run scripts/interactions/ERC1155/mintToken_Adv.js ",
+    "mintToken-localhost:BasContract": "npx hardhat --network localhost run scripts/interactions/ERC1155/mintToken_Bas.js ",
+    "mintToken-localhost:AdvContract": "npx hardhat --network localhost run scripts/interactions/ERC1155/mintToken_Adv.js "
+
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "ethers": "^6.13.5",
     "fs": "^0.0.1-security",
-    "hardhat": "^2.22.10"
+    "got": "^14.4.6",
+    "hardhat": "^2.22.10",
+    "recursive-fs": "^2.1.0"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.1.0",
+    "base-path-converter": "^1.0.2",
     "buffer": "^6.0.3",
     "dotenv": "^16.4.5",
     "pinata-web3": "^0.5.4"

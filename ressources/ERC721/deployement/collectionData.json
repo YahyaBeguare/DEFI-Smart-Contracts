@@ -1,9 +1,9 @@
 {
-    "name": "Future Robots",
-    "symbol": "FRBT",
-    "description": "Robots are the future",
-    "mintingCost": "0.05",
-    "initialOwner": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+    "name": "X Robots",
+    "symbol": "XRBT",
+    "description": "This NFT collection represents the X Robots collection",
+    "mintingCost": "0",
+    "initialOwner": "0x999fCE9A603d898c1d30318B9AeCBa9eb18919D3",
     "attributes":[]
 
 }

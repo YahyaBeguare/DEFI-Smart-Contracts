@@ -1,10 +1,11 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
-//require("./tasks/rsa.test");
+require("hardhat-gas-reporter");
 
 SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL;
 WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY;
 GANACHE_ACCOUNT = process.env.GANACHE_WALLET_PRIVATE_KEY;
+COINMARKETCAP= process.env.COINMARKETCAP_API_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
@@ -15,6 +16,15 @@ module.exports = {
         runs: 1000,
       },
     },
+  },
+  gasReporter: {
+    enabled: true,           
+    currency: "USD",           // Currency in which to report costs
+    coinmarketcap: COINMARKETCAP,  
+    outputFile: "gas-report.txt",  // (Optional) File to save the report
+    noColors: false, 
+    // gasPrice: 20, 
+   offline: true,           
   },
   // this line sets the default network to use when running tasks or scripts
   defaultNetwork: "localhost",

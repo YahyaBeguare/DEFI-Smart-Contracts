@@ -7,13 +7,14 @@ const { Blob } = require("buffer");
 
 const addressFile = require("../../../address.json");
 const mintingFile = require("../../../ressources/ERC721/mint/mintingData.json");
+const collectionFile = require("../../../ressources/ERC721/deployement/collectionData.json");
 const imagesFolder = "./ressources/ERC721/mint/images";
 let items = [];
 let imagePath;
 let imageCID;
 let metadataFilePath;
 let URI;
-
+let mintingCost;
 async function mint() {
   // const [deployer] = await hre.ethers.getSigners();
 
@@ -22,6 +23,8 @@ async function mint() {
   console.log("Collection Address: ", CollectionAddress);
 
   //
+  mintingCost = collectionFile["mintingCost"];
+  console.log("Minting Cost: ", mintingCost);
   const imageName = mintingFile["mintingData"]["name"];
   const Receiver = mintingFile["mintingData"]["ReceiverAddress"];
   console.info("Receiver: ", Receiver, " Item name: ", imageName);
@@ -126,7 +129,7 @@ async function mint() {
     console.log("Collection Name: ", NFname);
     // Call the payable mint function
     const mintTx = await collectionContract.mint(Receiver, URI, {
-      value: ethers.parseUnits("0.1", "ether"), // Send 0.1 Ether
+      value: ethers.parseUnits(mintingCost, "ether"), // Send 0.1 Ether
     });
 
     console.log("Mint transaction sent. Waiting for confirmation...");
@@ -137,6 +140,7 @@ async function mint() {
   } catch (error) {
     console.error("Error minting NFT:", error);
   }
+  
 }
 
 mint().catch((error) => {
