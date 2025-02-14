@@ -11,6 +11,7 @@ This repository contains implementations of various DeFi protocols using the Eth
 3. [Smart Contracts](#smart-contracts)
    - [ERC20](#erc20)
    - [ERC721](#erc721)
+   - [ERC1155](#erc1155)
 4. [Deployment](#deployment)
 5. [Testing](#testing)
 6. [Interacting with the Contracts](#interacting-with-the-contracts)
@@ -65,7 +66,7 @@ The ERC-20 contract defines a standard for fungible tokens, widely used for util
 
 For detailed documentation, see [ERC20.md](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/).
 
-#### + Basic Tokens Contracts
+#### Basic Tokens Contracts
 
 **MyToken.sol**
 
@@ -81,7 +82,7 @@ You could customise the token properties in the tokenInfo.json file located in s
 
 The TokensFactory contract is a smart contract that allows users to deploy multiple instances of customizable ERC-20 tokens through the MyTokenFac contract. It stores key details about each deployed token, such as its name, symbol, decimals, initial supply, and contract address. The contract emits an event when a new token is created and provides functions to retrieve token details by index or name.
 
-#### + Advanced Tokens Contracts
+#### Advanced Tokens Contracts
 
 **ZeroToken.sol**
 
@@ -109,11 +110,34 @@ The ERC-721 contract defines a standard for non-fungible tokens (NFTs), widely u
 
 For detailed documentation, see [ERC721.md](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/).
 
-#### + Advanced NFTs Contracts
+####  Advanced NFTs Contracts
 
 **MyCollection.sol**
 MyCollection is an ERC-721 NFT contract that allows the owner to mint and burn tokens ans sets the cost to mint tokens , while managing per-token metadata via URI storage. The contract is pausable, meaning token transfers and modifications (minting/burning) can be temporarily halted. It also stores a collection-level metadata URI to represent the overall collection. And it uses the openzeppelin implementation for a better security . 
 Noting that the owner of the contract could mint new tokens for free, but other users must pay the cost setted by the owner in the samrt contract to mint their tokens .
+
+### ERC1155
+
+The ERC1155 contract defines a multi-token standard, allowing a single contract to manage multiple token types (both fungible and non-fungible).
+
+**Features:**
+- Mintable
+
+- Burnable
+
+- Metadata
+
+- Batch transfer capabilities
+
+- Supports fungible and non-fungible tokens
+
+#### Basic Contracts
+
+**BasContract.sol**
+
+#### Advanced contracts
+
+**AdvContract.sol**
 
 ## Deployment
 

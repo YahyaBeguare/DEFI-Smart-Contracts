@@ -44,7 +44,10 @@
     "uploadImages:AdvContract": "node scripts/deployement/ERC1155/Advanced/uploadImages.js",
     "uploadMetadata:AdvContract": " node scripts/deployement/ERC1155/Advanced/uploadMetadata.js",
     "uploadImages:BasContract": "node scripts/deployement/ERC1155/Basic/uploadImages.js",
-    "uploadMetadata:BasContract": " node scripts/deployement/ERC1155/Basic/uploadMetadata.js"
+    "uploadMetadata:BasContract": " node scripts/deployement/ERC1155/Basic/uploadMetadata.js",
+    "mintToken-localhost:BasContract": "npx hardhat --network localhost run scripts/interactions/ERC1155/mintToken_Bas.js ",
+    "mintToken-localhost:AdvContract": "npx hardhat --network localhost run scripts/interactions/ERC1155/mintToken_Adv.js "
+
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",

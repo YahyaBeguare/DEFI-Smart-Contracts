@@ -25,7 +25,7 @@ async function uploadImages() {
   try {
     let contractArgs = JSON.parse( await fs.readFile(contractArgsPath, "utf8"));
 
-    contractArgs.baseMetadataURI = baseMetadataURI;
+    contractArgs.baseMetadataURI = baseMetadataURI + "/{id}";
 
      // Write the updated JSON to the contractArgs file
      await fs.writeFile(
