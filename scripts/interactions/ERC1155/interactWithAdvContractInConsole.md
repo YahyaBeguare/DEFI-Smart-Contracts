@@ -3,7 +3,9 @@ This document explain step by step how to interact with the AdvContract.sol cont
 Ps: You could use a different network, just replace "localhost" with the name of the network you want to use(sepolia, rinkeby, ganache...) and set the network in the `"hardhat.config.js"` file .
 ## Prerequisites
 
-- Ensure you have setted the tokens images in the `"ressources\ERC1155\Advanced\TokensPictures"` folder .
+- Ensure you have setted the tokens jpg images in the `"ressources\ERC1155\Advanced\TokensPictures"` folder and named them with their ids starting from 1 .
+
+- Ensure you have setted the initialOwner of the contract in the `"ressources\ERC1155\Advanced\AdvContractArgs.json"` file . If not the deployer address will be setted automatically as the initial owner .
 - Make sure the Hardhat network is running(just in this case to interact using the hardhat network).
 
 ## Steps to Interact with the Deployed Contract
@@ -23,11 +25,12 @@ In another Terminal, to upload the tokens images run:
 npm run uploadImages:AdvContract
 ```
 
-Then to upload the tokens  metadta run:
+Then Edit the generated tokens metadata files in `"ressources\ERC1155\Advanced\TokensMetadata"`, and upload the tokens  metadta by running:
 
 ```sh
 npm run uploadMetadata:AdvContract
 ```
+Then the baseUri will be outputted .
 
 ### 3. Deploy the Contract
 
@@ -80,7 +83,6 @@ await setTx.wait();
 ```
 Replace `"NEW_URI"` with the new URI  .
 #### Mint a New Token
-
 ```javascript
 const [owner] = await ethers.getSigners();
 let mintTx = await advContract.mint(owner.address, 2, 100, "0x");

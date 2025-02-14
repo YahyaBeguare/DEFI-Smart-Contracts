@@ -1,9 +1,11 @@
 # Interacting with the `BasContract` Using Hardhat Console
+
 This document explain step by step how to interact with the BasContract.sol contract using the hardhat network to mint and Burn fungible and NonFungible tokens , get the contract base uri and check token's ownership .
 Ps: You could use a different network, just replace "localhost" with the name of the network you want to use(sepolia, rinkeby, ganache...) and set the network in the `"hardhat.config.js"` file .
+
 ## Prerequisites
 
-- Ensure you have setted the tokens images in the `"ressources\ERC1155\Basic\TokensPictures"` folder .
+- Ensure you have setted the tokens jpg images in the `"ressources\ERC1155\Basic\TokensPictures"` folder and named them with their ids starting from 1.
 - Make sure the Hardhat network is running(just in this case to interact using the hardhat network).
 
 ## Steps to Interact with the Deployed Contract
@@ -15,21 +17,22 @@ Open a terminal and start the Hardhat network:
 ```sh
 npx hardhat node
 ```
+
 Ps: This step is not required if another network is used .
 
 ### 2. Upload the tokens images to IPFS
 
 In another Terminal, to upload the tokens images run:
+
 ```sh
 npm run uploadImages:BasContract
 ```
 
-Then to upload the tokens  metadta run:
+Then to upload the tokens metadta run:
 
 ```sh
 npm run uploadMetadata:BasContract
 ```
-
 
 ### 3. Deploy the Contract
 
@@ -38,8 +41,6 @@ In another terminal, deploy your contract if it's not already deployed:
 ```sh
 npx hardhat run scripts/deployement/ERC1155/Basic/deploy.BasContract.js --network localhost
 ```
-
-
 
 ### 4. Open the Hardhat Console
 
@@ -115,4 +116,4 @@ To exit the Hardhat console, type:
 
 - Ensure you replace placeholders like `"deployed_contract_address"` with actual values.
 - The `data` parameter in the `mint` and `mintBatch` functions is a `bytes` type, which can be used to pass additional data. In many cases, it can be an empty string (`"0x"`).
-- You can add more interactions based on the functions available in this contract. 
+- You can add more interactions based on the functions available in this contract.

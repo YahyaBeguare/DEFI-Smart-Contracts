@@ -37,6 +37,7 @@
     "deploy-ganache:BasContract": "npx hardhat --network ganache run scripts/deployement/ERC1155/Basic/deploy.BasContract.js",
     "deploy-sepolia:BasContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Basic/deploy.BasContract.js",
     "test:BasContract": "npx hardhat test test/ERC1155/basContract.test.js",
+    "deploy:AdvContract": "npx hardhat run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "deploy-localhost:AdvContract": "npx hardhat --network localhost run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "deploy-ganache:AdvContract": "npx hardhat --network ganache run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
     "deploy-sepolia:AdvContract": "npx hardhat --network sepolia run scripts/deployement/ERC1155/Advanced/deploy.AdvContract.js",
@@ -45,6 +46,8 @@
     "uploadMetadata:AdvContract": " node scripts/deployement/ERC1155/Advanced/uploadMetadata.js",
     "uploadImages:BasContract": "node scripts/deployement/ERC1155/Basic/uploadImages.js",
     "uploadMetadata:BasContract": " node scripts/deployement/ERC1155/Basic/uploadMetadata.js",
+    "mintToken:BasContract": "npx hardhat run scripts/interactions/ERC1155/mintToken_Bas.js ",
+    "mintToken:AdvContract": "npx hardhat run scripts/interactions/ERC1155/mintToken_Adv.js ",
     "mintToken-localhost:BasContract": "npx hardhat --network localhost run scripts/interactions/ERC1155/mintToken_Bas.js ",
     "mintToken-localhost:AdvContract": "npx hardhat --network localhost run scripts/interactions/ERC1155/mintToken_Adv.js "
 
