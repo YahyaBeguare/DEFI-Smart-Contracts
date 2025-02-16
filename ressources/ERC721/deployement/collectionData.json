@@ -2,7 +2,7 @@
     "name": "X Robots",
     "symbol": "XRBT",
     "description": "This NFT collection represents the X Robots collection",
-    "mintingCost": "0",
+    "mintingCost": "0.1",
     "initialOwner": "0x999fCE9A603d898c1d30318B9AeCBa9eb18919D3",
     "attributes":[]
 

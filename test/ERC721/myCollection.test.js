@@ -7,6 +7,7 @@ describe("MyCollection", function () {
     let owner;
     let addr1;
     let addr2;
+    const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
     beforeEach(async function () {
         // Get the ContractFactory and Signers
@@ -68,10 +69,22 @@ describe("MyCollection", function () {
 
             // Attempt to mint with insufficient funds
             await expect(
-                myCollection.mint(addr1.address, tokenURI, {
+                myCollection.connect(addr1).mint(addr1.address, tokenURI, {
                     value: ethers.parseEther("0.05"), // Send 0.05 Ether (less than required)
                 })
             ).to.be.revertedWith("Insufficient funds");
+        });
+
+        it("Should allow the contract owner to mint for free", async function () {
+            const tokenURI = "ipfs://token-uri";
+            const tokenId= await myCollection.tokenCounter() ;
+            // Attempt to mint with insufficient funds
+            await expect(
+                myCollection.connect(owner).mint(addr2.address, tokenURI, {
+                    value: ethers.parseEther("0"), // Send 0 Ether (less than required)
+                })
+            ).to.emit(myCollection, "Transfer")
+            .withArgs(ZERO_ADDRESS, addr2.address, tokenId);
         });
 
         it("Should fail if minting is paused", async function () {
@@ -155,4 +168,29 @@ describe("MyCollection", function () {
             expect(tokenURIs[1]).to.equal(tokenURI2);
         });
     });
+
+    describe("Withdraw funds", function () {
+        it("should allow the contract owner to withdraw funds", async function () {
+          // Set the contract's balance to 1 Ether using hardhat_setBalance.
+          const oneEther = ethers.parseEther("1.0");
+          const oneEtherHex = "0x" + oneEther.toString(16); // Convert BigInt to hex string
+      
+          await ethers.provider.send("hardhat_setBalance", [
+            myCollection.target,
+            oneEtherHex,
+          ]);
+      
+          // Retrieve the contract's balance (should be 1 Ether)
+          const contractBalance = await ethers.provider.getBalance(myCollection.target);
+          expect(contractBalance).to.equal(oneEther);
+      
+          // Now, when the owner withdraws, the contract should emit the Withdraw event.
+          await expect(myCollection.connect(owner).withdraw())
+            .to.emit(myCollection, "Withdraw")
+            .withArgs(owner.address, oneEther);
+        });
+      });
+      
+      
+      
 });

@@ -72,6 +72,12 @@ const tokenId = 1; // Replace with the actual token ID
 const owner = await myCollection.ownerOf(tokenId);
 console.log("Token Owner:", owner);
 ```
+### Withdraw funds 
+Ps: this requires that you are the contract owner .
+```javascript
+const withdrawTx = await myCollection.withdraw();
+await withdrawTx.wait() ;
+```
 
 ### 6. Exit the Console
 To exit the Hardhat console, type:

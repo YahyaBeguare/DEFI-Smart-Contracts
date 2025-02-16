@@ -1,8 +1,8 @@
 {
   "name": "X Robots",
   "symbol": "XRBT",
-  "mintingCost": "0",
+  "mintingCost": "100000000000000000",
   "URI": "https://amaranth-impossible-caribou-28.mypinata.cloud/ipfs/bafkreiby2cwea3q43t3p6i6ugq6ua4xk4uzy27y5eoadfsdxaok7gmrboa",
-  "initialOwner": "0x999fCE9A603d898c1d30318B9AeCBa9eb18919D3",
-  "collectionContractAddress": "0xCC4996D4fF5E7119f0d4e487497388623D7c368C"
+  "initialOwner": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "collectionContractAddress": "0xfcDB4564c18A9134002b9771816092C9693622e3"
 }

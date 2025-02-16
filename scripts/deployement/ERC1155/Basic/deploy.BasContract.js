@@ -4,6 +4,7 @@ const path = require("path");
 
 
 const addressFile = require("../../../../address.json");
+const { json } = require("stream/consumers");
 const contractDetails= path.join(__dirname, "../../../../ressources/ERC1155/Basic/BasContractArgs.json");
 
 let ContractAddress;

@@ -12,6 +12,8 @@ contract MyCollection is ERC721, ERC721URIStorage, Ownable, ERC721Pausable {
     uint256 public tokenCounter;
     string private _collectionMetadataURI; // Variable for collection-level metadata
 
+    event Withdraw(address indexed owner, uint256 amount);
+
     // Constructor to initialize collection details and transfer ownership
     constructor(
         string memory name, 
@@ -91,6 +93,14 @@ contract MyCollection is ERC721, ERC721URIStorage, Ownable, ERC721Pausable {
     require(_isAuthorized(tokenOwner, _msgSender(), tokenId), "Caller is not owner nor approved");
     // Burn the token (ERC721URIStorage's _burn clears the token URI)
     _burn(tokenId);
+    }
+
+    // Allow the owner to withdraw the contract funds 
+    function withdraw() public onlyOwner {
+        uint256 balance= address(this).balance ;
+        require(balance>0, "No funds to withdraw");
+        payable(owner()).transfer(balance);
+        emit Withdraw(owner(), balance);
     }
 }
 
